@@ -32,19 +32,16 @@ public class ProduitService implements IProduitService {
     public void delete(long idProduit) {
       produitRepository.deleteById(idProduit);
     }
-
     @Override
     public List<Produit> getAllProduit() {
         return produitRepository.findAll();
     }
-
     @Override
     public Produit findByNom(String nom) {
         Produit p = produitRepository.findByNom(nom).orElse(null);
         Assert.notNull(p, "Produit not found");
         return p;
     }
-
     @Override
     public List<Produit> findByDisponibilite(boolean disponibilite) {
         return produitRepository.findByDisponiblite(disponibilite);
